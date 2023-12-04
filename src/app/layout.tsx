@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Victoria E Johnson's Portfilio",
-  description: "Portfilio of Victoria's Work",
+  title: "Victoria E Johnson's Portfilo",
+  description: "Portfilo of Victoria E Johnson's work.",
 };
 
 export default function RootLayout({
@@ -16,7 +16,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {/* Container */}
+        {/* Header */}
+        {children}
+        {/* Footer */}
+        {/* Container */}
+      </body>
     </html>
   );
 }
