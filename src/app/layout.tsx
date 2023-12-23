@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Container from "postcss/lib/container";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { ThemeProvider } from "../hooks/useThemeHelper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,12 +20,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        {/* Container */}
-        {/* Header */}
-        {children}
-        {/* Footer */}
-        {/* Container */}
+      <body
+        className={`${inter.className} overflow-y-scroll overflow-x-hidden`}
+      >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {/* Container */}
+          <Header></Header>
+          {children}
+          <Footer></Footer>
+          {/* Container */}
+        </ThemeProvider>
       </body>
     </html>
   );
