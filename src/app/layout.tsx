@@ -4,7 +4,7 @@ import "./globals.css";
 import Container from "postcss/lib/container";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ThemeProvider } from "../hooks/useThemeHelper";
+import { ThemeProvider } from "../hooks/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
