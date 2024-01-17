@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Container from "postcss/lib/container";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ThemeProvider } from "../hooks/ThemeProvider";
+import { DarkLightBackground } from "@/components/DarkLightBackground";
+import { GlobalContextProvider } from "@/hooks/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,16 +20,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} overflow-y-scroll overflow-x-hidden`}
-      >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <body className={inter.className}>
+        <GlobalContextProvider>
+          {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}
           {/* Container */}
           <Header></Header>
           {children}
           <Footer></Footer>
+          <DarkLightBackground />
           {/* Container */}
-        </ThemeProvider>
+          {/* </ThemeProvider> */}
+        </GlobalContextProvider>
       </body>
     </html>
   );

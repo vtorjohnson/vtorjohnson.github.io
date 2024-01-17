@@ -11,10 +11,10 @@ const Header = () => {
           className="h-auto w-auto flex flex-row items-center"
         >
           <Image
-            src="/NavLogo.png"
+            src="/VictoryMobileDevelopmentIconLogo_Only.png"
             alt="logo"
-            width={70}
-            height={70}
+            width={50}
+            height={60}
             className="cursor-pointer hover:animate-slowspin"
           />
 
@@ -23,19 +23,7 @@ const Header = () => {
           </span>
         </a>
 
-        <div className="w-[400px] h-full flex flex-row items-center justify-between md:mr-20">
-          <div className="flex items-center justify-between w-full h-auto px-[20px] py-[10px] rounded-full text-gray-200">
-            <a href="#about-me" className="cursor-pointer">
-              About me
-            </a>
-            <a href="#skills" className="cursor-pointer">
-              Skills
-            </a>
-            <a href="#projects" className="cursor-pointer">
-              Projects
-            </a>
-          </div>
-        </div>
+        <div className="w-[400px] h-full flex flex-row items-center justify-between md:mr-20"></div>
 
         <div className="flex flex-row gap-5">
           {WorkReferences.map((reference) => (

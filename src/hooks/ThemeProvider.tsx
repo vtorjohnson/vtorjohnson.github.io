@@ -1,7 +1,51 @@
 "use client";
-import { ThemeProvider as NextThemesProvider } from "next-themes";
-import type { ThemeProviderProps } from "next-themes/dist/types";
+import {
+  useState,
+  createContext,
+  ReactNode,
+  useCallback,
+  useContext,
+} from "react";
 
-export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
-  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
+type screenModes = "light" | "dark";
+
+type IGlobalContextProps = {
+  mode: screenModes;
+  toggle: () => void;
+};
+
+export const GlobalContext = createContext<IGlobalContextProps>({
+  mode: "light",
+  toggle: () => {},
+});
+
+type Props = {
+  children: ReactNode;
+};
+
+export function useGlobalContext() {
+  return useContext(GlobalContext);
 }
+
+export const GlobalContextProvider = ({ children }: Props) => {
+  const [mode, setMode] = useState<screenModes>("light");
+
+  const toggle = useCallback(() => {
+    if (mode == "light") {
+      setMode("dark");
+    } else {
+      setMode("light");
+    }
+  }, [setMode, mode]);
+
+  return (
+    <GlobalContext.Provider
+      value={{
+        mode,
+        toggle,
+      }}
+    >
+      {children}
+    </GlobalContext.Provider>
+  );
+};
